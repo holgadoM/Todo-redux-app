@@ -1,0 +1,11 @@
+    <!-- alternativa a ngClass => [class.completed]="todo.completo" -->
+<li [ngClass]="{ 'completed' : todo?.completo == true , '' : todo?.completo == false } "
+    [class.editing]="editando"
+>
+    <div class="view">
+        <input class="toggle" type="checkbox" [formControl]="chkCompletado">
+        <label (dblclick)="editar()" >{{todo?.nombre}}</label>
+        <button class="destroy" (click)="eliminar()"></button>
+    </div>
+    <input class="edit" [formControl]="inputText" #textInputRef (blur)="guardar()" (keyup.enter)="guardar()">
+</li>
